@@ -17,6 +17,23 @@ class MainActivity : AppCompatActivity() {
         //this will load the url of the website
         webView.loadUrl("https://sites.google.com/view/pkads")
 
+        //this will enable the javascript settings, it can also xss vulnerabilities
+        webView.settings.javaScriptEnabled = true
+
+        //if you want to enable the zoom feature
+        webView.settings.setSupportZoom(true)
+    }
+
+    //if you press Back button this code will work
+    override fun onBackPressed()  {
+        //if your webview can go back it will go back
+        if (webView.canGoBack())
+            webView.goBack()
+        //if your webview cannot go back
+        //it will exit the application
+
+        else
+            super.onBackPressed()
 
     }
 }
